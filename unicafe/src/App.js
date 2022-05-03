@@ -6,21 +6,33 @@ function App()
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [avarage, setAvarage] = useState(0)
+  const [positive, setPositive] = useState(0)
 
-  let handleButtonGoodClick = function ()
+  const handleButtonGoodClick = function ()
   {
     setGood(good + 1)
+    setAvarage((good + 1 - bad) / (good + bad + neutral))
+    setPositive((good + 1 * 100) / (good + bad + neutral))
   }
 
-  let handleButtonNeutralClick = function ()
+  const handleButtonNeutralClick = function ()
   {
     setNeutral(neutral + 1)
+    setAvarage((good - bad) / (good + bad + neutral))
+    setPositive((good * 100) / (good + bad + neutral))
   }
 
-  let handleButtonBadClick = function ()
+  const handleButtonBadClick = function ()
   {
     setBad(bad + 1)
+    setAvarage((good - (bad + 1)) / (good + bad + neutral))
+    setPositive((good * 100) / (good + (bad + 1) + neutral))
   }
+
+
+
+
 
   return (
     <div>
@@ -32,6 +44,8 @@ function App()
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>avarage {avarage}</p>
+      <p>positive {positive} %</p>
     </div>
   )
 }
