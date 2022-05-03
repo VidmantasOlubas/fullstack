@@ -3,11 +3,14 @@ import Part from "./Part"
 
 const Content = (props) =>
 {
+    let array = []
+    for (let a = 0; a < props.parts.length; a++)
+    {
+        array.push(<Part part={props.parts[a].name} exercises={props.parts[a].exercises} />)
+    }
     return (
         <div>
-            <Part part = {props.part1} exercises = {props.exercises1}/>
-            <Part part = {props.part2} exercises = {props.exercises2}/>
-            <Part part = {props.part3} exercises = {props.exercises3}/>
+            {array}
         </div>
     )
 }
