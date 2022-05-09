@@ -33,10 +33,6 @@ function App()
     setPositive((good * 100) / (good + (bad + 1) + neutral))
   }
 
-
-
-
-
   return (
     <div>
       <h1>give feedback</h1>
@@ -44,8 +40,7 @@ function App()
       <Button text='neutral' action={handleButtonNeutralClick}></Button>
       <Button text='bad' action={handleButtonBadClick}></Button>
       <h1>statistics</h1>
-      <Statistics good={good} neutral={neutral} bad={bad} all={good + neutral + bad} avarage={avarage} positive={positive}></Statistics>
-
+      <Statistics good={good} neutral={neutral} bad={bad} all={good + neutral + bad} avarage={avarage} positive={positive + ' %'}></Statistics>
     </div>
   )
 }
