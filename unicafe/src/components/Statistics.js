@@ -1,4 +1,5 @@
 import App from "../App"
+import StatisticLine from "./StatisticLine"
 
 
 const Statistics = (props) =>
@@ -8,12 +9,12 @@ const Statistics = (props) =>
         console.log('good > 0')
         return (
             <div>
-                <p>good {props.good}</p>
-                <p>neutral {props.neutral}</p>
-                <p>bad {props.bad}</p>
-                <p>all {props.all}</p>
-                <p>avarage {props.avarage}</p>
-                <p>positive {props.positive} %</p>
+                <StatisticLine text='good' value={props.good}/>
+                <StatisticLine text='neutral' value={props.neutral}/>
+                <StatisticLine text='bad' value={props.bad}/>
+                <StatisticLine text='all' value={props.all}/>
+                <StatisticLine text='avarage' value={props.avarage}/>
+                <StatisticLine text='positive' value={props.positive} text='%'/>
             </div>)
     }
 
@@ -22,12 +23,12 @@ const Statistics = (props) =>
         console.log('neutral >0')
         return (
             <div>
-                <p>good {props.good}</p>
-                <p>neutral {props.neutral}</p>
-                <p>bad {props.bad}</p>
-                <p>all {props.all}</p>
-                <p>avarage {props.avarage}</p>
-                <p>positive {props.positive} %</p>
+                <StatisticLine text='good' value={props.good}/>
+                <StatisticLine text='neutral' value={props.neutral}/>
+                <StatisticLine text='bad' value={props.bad}/>
+                <StatisticLine text='all' value={props.all}/>
+                <StatisticLine text='avarage' value={props.avarage}/>
+                <StatisticLine text='positive' value={props.positive} text='%'/>
             </div>)
     }
 
@@ -36,12 +37,12 @@ const Statistics = (props) =>
         console.log('bad > 0')
         return (
             <div>
-                <p>good {props.good}</p>
-                <p>neutral {props.neutral}</p>
-                <p>bad {props.bad}</p>
-                <p>all {props.all}</p>
-                <p>avarage {props.avarage}</p>
-                <p>positive {props.positive} %</p>
+                <StatisticLine text='good' value={props.good}/>
+                <StatisticLine text='neutral' value={props.neutral}/>
+                <StatisticLine text='bad' value={props.bad}/>
+                <StatisticLine text='all' value={props.all}/>
+                <StatisticLine text='avarage' value={props.avarage}/>
+                <StatisticLine text='positive' value={props.positive} text='%'/>
             </div>)
     }
 
