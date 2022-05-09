@@ -9,7 +9,7 @@ function App()
   const [bad, setBad] = useState(0)
   const [avarage, setAvarage] = useState(0)
   const [positive, setPositive] = useState(0)
-  
+
 
   const handleButtonGoodClick = function ()
   {
