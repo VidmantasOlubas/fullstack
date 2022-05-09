@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-const App = () => {
+const App = () =>
+{
   const anecdotes = [
     'If it hurts, do it more often',
     'Adding manpower to a late software project makes it later!',
@@ -10,20 +11,31 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
-   
+
+  const [points, setPoints] = useState([0,0,0,0,0,0,0])
+  
   const [selected, setSelected] = useState(0)
 
-const generateRandomValueForSelected= () =>{
-  const random = Math.random()
-  const a = random * anecdotes.length
-  const b = Math.floor(a)
-  setSelected(b)
-}
+  const generateRandomValueForSelected = () =>
+  {
+    const random = Math.random()
+    const a = random * anecdotes.length
+    const b = Math.floor(a)
+    setSelected(b)
+  }
+
+  const increaseVoteCount =()=>{
+    const copyOfPointsArray = [...points]
+    copyOfPointsArray[selected]++
+    setPoints(copyOfPointsArray)
+  }
 
   return (
     <div>
       {anecdotes[selected]}
-      <br/><button onClick={generateRandomValueForSelected}>next anecdote</button>
+      <br /><p>has {points[selected]} votes</p>
+      <br /><button onClick={increaseVoteCount}>vote</button>
+      <button onClick={generateRandomValueForSelected}>next anecdote</button>
     </div>
   )
 }
