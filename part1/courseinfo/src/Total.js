@@ -1,5 +1,5 @@
 import React from "react"
-
+//props parts
 const Total = (props) =>
 {
     let total = 0

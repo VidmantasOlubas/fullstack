@@ -1,6 +1,6 @@
 import React from "react"
 import Part from "./Part"
-
+// props parts
 const Content = (props) =>
 {
     let array = []
