@@ -30,12 +30,31 @@ const App = () =>
     setPoints(copyOfPointsArray)
   }
 
+  const renderMostVote = () => {
+    const maxVote = Math.max(...points)
+    if (maxVote === 0) return null;
+    const maxList = [];
+    points.forEach((el, index)=> {
+      if (el ===maxVote) maxList.push(index)
+    });
+    return maxList.map((el,index) =>(
+      <p key={index}> {anecdotes[el]} -- has {points [el]} votes</p>
+    ))
+  }
+
+
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <br /><p>has {points[selected]} votes</p>
       <br /><button onClick={increaseVoteCount}>vote</button>
       <button onClick={generateRandomValueForSelected}>next anecdote</button>
+      <div>
+      <h1>Anecdote(s) with most votes</h1>
+      {renderMostVote()}
+      </div>
     </div>
   )
 }
