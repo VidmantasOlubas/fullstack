@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, createRef } from 'react'
 
 const App = () =>
 {
@@ -6,29 +6,44 @@ const App = () =>
     { name: 'Arto Hellas' },
     { name: 'Vidmantas' },
     { name: 'aaaaaa' },
-    { name: 'bbbbbb' }
+    { name: 'bbbbbb' },
+    { name: 'cccccc' }
   ])
   const [newName, setNewName] = useState('')
+
+  const refInputName = createRef()
+
+  const fsubmit = () =>
+  {
+    console.log(refInputName.current.value)
+    const arrayCopyOfPersons = [...persons ]
+    arrayCopyOfPersons.push({name: refInputName.current.value})
+    setPersons(arrayCopyOfPersons)
+   // setPersons([{name: refInputName.current.value }])
+  }
+
+  const array = []
+
+  for (let i = 0; i < persons.length; i++)
+  {
+    array.push(<p key={i}>{persons[i].name}</p>)
+  }
 
   return (
     <div>
       <h2>Phonebook</h2>
 
-      <form>
-        <div>
-          name: <input />
-        </div>
-        <div>
-          <button type="submit">add</button>
-          <div>debug :{newName}</div>
-        </div>
-      </form>
+
+      <div>
+        name: <input ref={refInputName} />
+      </div>
+      <div>
+        <button onClick={fsubmit}>add</button>
+      </div>
+
 
       <h2>Numbers</h2>
-      <p>{persons[0].name}</p>
-      <p>{persons[1].name}</p>
-      <p>{persons[2].name}</p>
-      <p>{persons[3].name}</p>
+      {array}
     </div>
   )
 }
