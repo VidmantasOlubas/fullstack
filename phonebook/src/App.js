@@ -13,13 +13,17 @@ const App = () =>
 
   const refInputName = createRef()
 
-  const fsubmit = () =>
-  {
+  const fsubmit = () =>{
     console.log(refInputName.current.value)
-    const arrayCopyOfPersons = [...persons ]
-    arrayCopyOfPersons.push({name: refInputName.current.value})
-    setPersons(arrayCopyOfPersons)
-   // setPersons([{name: refInputName.current.value }])
+    
+
+      for(let i = 0;i < persons.length; i++){
+        console.log('tikrinu ar ' + refInputName.current.value + ' === ' + persons[i].name )
+        if (refInputName.current.value === persons[i].name){
+          return alert(refInputName.current.value + ' is already here')
+        }
+      }
+    setPersons([{name: refInputName.current.value},...persons])
   }
 
   const array = []
